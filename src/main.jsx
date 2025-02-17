@@ -5,7 +5,6 @@ import App from "./App"
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <h1>CV Builder</h1>
     <App />
   </StrictMode>
 )

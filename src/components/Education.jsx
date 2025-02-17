@@ -1,5 +1,5 @@
 import { useState } from "react"
-export default function Education({ setExperience }) {
+export default function Education({ setEducation }) {
   const [education, setEdu] = useState({
     schoolName: "",
     title: "",
@@ -9,7 +9,7 @@ export default function Education({ setExperience }) {
   const [isEditing, setIsEditing] = useState(true)
   function handleSubmit(e) {
     e.preventDefault()
-    setExperience(education)
+    setEducation(education)
     setIsEditing(false)
   }
 
@@ -18,38 +18,41 @@ export default function Education({ setExperience }) {
   }
   return (
     <>
-      <h2>Your last Education title</h2>
       {isEditing ? (
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name">School Name: </label>
-          <input
-            type="text"
-            onChange={handleChange}
-            value={education.schoolName}
-            name="schoolName"
-            placeholder="School Name"
-          />
-          <label htmlFor="name">Title: </label>
-          <input
-            type="text"
-            onChange={handleChange}
-            value={education.title}
-            name="title"
-            placeholder="Bachelor/Master Title"
-          />
-          <label htmlFor="name">Date of Completion: </label>
-          <input
-            type="date"
-            onChange={handleChange}
-            value={education.date}
-            name="date"
-            placeholder="Date of Completion"
-          />
+        <div className="education">
+          <h2>Your last Education Title</h2>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="name">School Name: </label>
+            <input
+              type="text"
+              onChange={handleChange}
+              value={education.schoolName}
+              name="schoolName"
+              placeholder="School Name"
+            />
+            <label htmlFor="name">Title: </label>
+            <input
+              type="text"
+              onChange={handleChange}
+              value={education.title}
+              name="title"
+              placeholder="Bachelor/Master Title"
+            />
+            <label htmlFor="name">Date of Completion: </label>
+            <input
+              type="date"
+              onChange={handleChange}
+              value={education.date}
+              name="date"
+              placeholder="Date of Completion"
+            />
 
-          <button type="submit">Submit</button>
-        </form>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
       ) : (
-        <div className="personal-info">
+        <div className="education">
+          <h2>Your last Education Title</h2>
           <p>School Name: {education.schoolName}</p>
           <p>Title: {education.title}</p>
           <p>Date: {education.date}</p>
